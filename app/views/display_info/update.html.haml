@@ -35,6 +35,8 @@
           = subvention.LibelleFonds
         %td
           = subvention.TotalDepRetvalidAC
+  = will_paginate @subventions_done, :param_name => 'done_page', renderer: BootstrapPagination::Rails
+
   %h2 Subventions en cours
   %table.table.table-striped
     %thead
@@ -51,3 +53,4 @@
           = subvention.LibelleFonds
         %td
           = subvention.TotalDepRetvalidAC
+  = will_paginate @subventions_done, :param_name => 'not_done_page', renderer: BootstrapPagination::Rails

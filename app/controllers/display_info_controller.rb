@@ -10,7 +10,18 @@ class DisplayInfoController < ApplicationController
     @subventions_done.each do |sub|
       @total_aide_publique = @total_aide_publique + sub.montant_aide_publique
     end
+    @sub_year_1 = 0.0
+    @sub_year_2 = 0.0
+    @sub_year_3 = 0.0
+    @subventions_done.each do |sub|
+      puts '--------------------------'
+      puts sub.date_fist_comite.year
+      @sub_year_1 = @sub_year_1 + sub.montant_aide_publique if sub.date_fist_comite.year == 2013
+      @sub_year_2 = @sub_year_1 + sub.montant_aide_publique if sub.date_fist_comite.year == 2012
+      @sub_year_3 = @sub_year_1 + sub.montant_aide_publique if sub.date_fist_comite.year == 2011
+    end
 
+    @total_aide_publique = @sub_year_1 + @sub_year_2 + @sub_year_3
 
   end
 end

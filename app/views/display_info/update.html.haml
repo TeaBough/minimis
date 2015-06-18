@@ -34,7 +34,15 @@
           = @entreprise.l3
         %dt Montant d'aide publique :
         %dd= number_to_currency(@total_aide_publique, locale: :fr, unit: '€', format: "%n %u")
-
+        %dt 2013
+        %dd
+          = number_to_currency(@sub_year_1, locale: :fr, unit: '€', format: "%n %u")
+        %dt 2012
+        %dd
+          = number_to_currency(@sub_year_2, locale: :fr, unit: '€', format: "%n %u")
+        %dt 2011
+        %dd
+          = number_to_currency(@sub_year_3, locale: :fr, unit: '€', format: "%n %u")
 
   %h2
     Subventions réalisés (

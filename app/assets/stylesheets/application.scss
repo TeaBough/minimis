@@ -10,6 +10,18 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "cover";
+
+#siret_entreprise_input {
+  height: 60px;
+  font-size: 25px;
+}
+#siret_col {
+  float: none;
+  margin: 0 auto;
+}

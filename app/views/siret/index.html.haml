@@ -1,0 +1,11 @@
+.site-wrapper
+  .site-wrapper-inner
+    .cover-container
+      .inner.cover
+        %h1.cover-heading Minimis
+        %p.lead Entrez votre Siret pour récupérer vos aides publiques perçues
+        %p.lead
+        = form_tag(url_for({controller: :siret, action: :update}), method: 'PATCH') do |f|
+          %div.col-md-5#siret_col
+            %input{:type=>"text", :class => "form-control", :placeholder => "Entrez votre Siret", :id => "siret_entreprise_input"}
+            = submit_tag "Valider", class: %w(btn btn-success), data: { disable_with: "Valider", submit: true}

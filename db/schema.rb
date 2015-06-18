@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618135531) do
+ActiveRecord::Schema.define(version: 20150618142917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20150618135531) do
     t.string  "LocaCodCanton"
     t.string  "LocalibArdt"
     t.date    "date_fist_comite"
+    t.float   "montant_aide_publique"
   end
 
 end

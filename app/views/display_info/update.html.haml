@@ -36,7 +36,10 @@
         %dd= number_to_currency(@total_aide_publique, locale: :fr, unit: '€', format: "%n %u")
 
 
-  %h2 Subventions réalisés
+  %h2
+    Subventions réalisés (
+    = @subventions_done.total_entries
+    )
   %table.table.table-striped
     %thead
       %tr
@@ -57,7 +60,10 @@
   = will_paginate @subventions_done, :param_name => 'done_page', renderer: BootstrapPagination::Rails
 
 
-  %h2 Subventions en cours
+  %h2
+    Subventions en cours (
+    = @subventions_not_done.total_entries
+    )
   %table.table.table-striped
     %thead
       %tr

@@ -1,6 +1,20 @@
+%nav.navbar.navbar-inverse.navbar-fluid
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "#"} Minimis
+    #navbar.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li.active
+          = link_to "Entrez un nouveau siret", "/"
+
 .container
   .page-header
-    %h1 Minimis
+    %h2 Information entreprise
   .panel.panel-success
     .panel.panel-heading
       %h2.panel-title
@@ -37,7 +51,12 @@
         %td
           = subvention.LibelleFonds
         %td
+
           = subvention.montant_aide_publique
+
+  = will_paginate @subventions_done, :param_name => 'done_page', renderer: BootstrapPagination::Rails
+
+
   %h2 Subventions en cours
   %table.table.table-striped
     %thead
@@ -53,4 +72,8 @@
         %td
           = subvention.LibelleFonds
         %td
+
           = subvention.montant_aide_publique
+
+  = will_paginate @subventions_done, :param_name => 'not_done_page', renderer: BootstrapPagination::Rails
+

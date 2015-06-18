@@ -18,6 +18,9 @@
           = @entreprise.l2
           %br
           = @entreprise.l3
+        %dt Montant d'aide publique :
+        %dd= number_to_currency(@total_aide_publique, locale: :fr, unit: '€', format: "%n %u")
+
 
   %h2 Subventions réalisés
   %table.table.table-striped
@@ -34,7 +37,7 @@
         %td
           = subvention.LibelleFonds
         %td
-          = subvention.TotalDepRetvalidAC
+          = subvention.montant_aide_publique
   %h2 Subventions en cours
   %table.table.table-striped
     %thead
@@ -50,4 +53,4 @@
         %td
           = subvention.LibelleFonds
         %td
-          = subvention.TotalDepRetvalidAC
+          = subvention.montant_aide_publique

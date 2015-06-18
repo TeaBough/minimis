@@ -46,6 +46,7 @@
         %th Dossier
         %th Fond
         %th Montant
+        %th Date décision
     %tbody
     - @subventions_done.each do |subvention|
       %tr
@@ -54,8 +55,9 @@
         %td
           = subvention.LibelleFonds
         %td
-
           = subvention.montant_aide_publique
+        %td.col-md-1
+          = subvention.date_fist_comite
 
   = will_paginate @subventions_done, :param_name => 'done_page', renderer: BootstrapPagination::Rails
 
@@ -70,6 +72,7 @@
         %th Dossier
         %th Fond
         %th Montant
+        %th Date décision
     %tbody
     - @subventions_not_done.each do |subvention|
       %tr
@@ -78,8 +81,9 @@
         %td
           = subvention.LibelleFonds
         %td
-
           = subvention.montant_aide_publique
+        %td.col-md-1
+          = subvention.date_fist_comite
 
   = will_paginate @subventions_done, :param_name => 'not_done_page', renderer: BootstrapPagination::Rails
 

@@ -1,12 +1,11 @@
-
 .container
   .page-header
-    %h1 Vos Subventions
+    %h1 Minimis
   .panel.panel-default
     .panel.panel-heading
       %h2.panel-title
         = @entreprise.raison_social
-    .panel.panel-body.release_body
+    .panel.panel-body
       %dl.dl-horizontal
         %dt
           Siret :
@@ -20,10 +19,19 @@
           %br
           = @entreprise.l3
 
-
-%br
-%br
-%h1 Subventions :
-- @subventions.each do |subvention|
-  = subvention.LibDossier
-  %br
+  %h2 Subventions réalisés
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Dossier
+        %th Fond
+        %th Montant
+    %tbody
+    - @subventions.each do |subvention|
+      %tr
+        %td
+          = subvention.LibDossier
+        %td
+          = subvention.LibelleFonds
+        %td
+          = subvention.TotalDepRetvalidAC

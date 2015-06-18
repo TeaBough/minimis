@@ -3,6 +3,10 @@
   .site-wrapper-inner
     .cover-container
       .inner.cover
+        #flash_message.center
+          - if flash.alert
+            .alert.alert-danger
+              = flash.alert
         %h1.cover-heading Minimis
         %p.lead Entrez votre Siret pour récupérer vos aides publiques perçues
         %p.lead

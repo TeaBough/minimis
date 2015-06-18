@@ -1,9 +1,15 @@
 class DisplayInfoController < ApplicationController
 
   def update
-    @subventions_done = Subvention.done(params[:siret]).paginate(:page => params[:done_page], :per_page => 10 )
-    @subventions_not_done = Subvention.not_done(params[:siret]).paginate(:page => params[:not_done_page], :per_page => 10 )
-    sub = @subventions_done.first
+    @subvention_all = Subvention.find_by_siret(params[:siret])
+    puts "AHHHHHHHHHH"
+    puts @subvention_all
+    if @subvention_all.size == 0 || @subvention_all.nil?
+      return redirect_to root_path, :flash => { :alert => "Données indisponibles pour ce siret" }
+    end
+    @subventions_done = Subvention.done(params[:siret]).paginate(:page => params[:done_page], :per_page => 10)
+    @subventions_not_done = Subvention.not_done(params[:siret]).paginate(:page => params[:not_done_page], :per_page => 10)
+    sub = @subvention_all.first
     @entreprise = Hashie::Mash.new({siret: sub.NumSiret, raison_social: sub.RSocMo, l1: sub.RueMo.gsub('*', ' ').gsub(/-.*/, ''), l2: sub.VilleResidMo, l3: sub.CodePostalMo})
 
     @total_aide_publique = 0.0

@@ -48,25 +48,7 @@
     Subventions réalisés (
     = @subventions_done.total_entries
     )
-  %table.table.table-striped
-    %thead
-      %tr
-        %th Dossier
-        %th Fond
-        %th Montant
-        %th Date décision
-    %tbody
-    - @subventions_done.each do |subvention|
-      %tr
-        %td
-          = subvention.LibDossier
-        %td
-          = subvention.LibelleFonds
-        %td
-          = subvention.montant_aide_publique
-        %td.col-md-1
-          = subvention.date_fist_comite
-
+  = render partial: 'subventions', locals: { subventions: @subventions_done}
   = will_paginate @subventions_done, :param_name => 'done_page', renderer: BootstrapPagination::Rails
 
 
@@ -74,24 +56,6 @@
     Subventions en cours (
     = @subventions_not_done.total_entries
     )
-  %table.table.table-striped
-    %thead
-      %tr
-        %th Dossier
-        %th Fond
-        %th Montant
-        %th Date décision
-    %tbody
-    - @subventions_not_done.each do |subvention|
-      %tr
-        %td
-          = subvention.LibDossier
-        %td
-          = subvention.LibelleFonds
-        %td
-          = subvention.montant_aide_publique
-        %td.col-md-1
-          = subvention.date_fist_comite
-
+  = render partial: 'subventions', locals: { subventions: @subventions_not_done }
   = will_paginate @subventions_done, :param_name => 'not_done_page', renderer: BootstrapPagination::Rails
 

@@ -1,0 +1,18 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th Dossier
+      %th Fond
+      %th Montant
+      %th Date d'attribution
+  %tbody
+  - subventions.each do |subvention|
+    %tr
+      %td
+        = subvention.LibDossier
+      %td
+        = subvention.LibelleFonds
+      %td
+        = subvention.montant_aide_publique
+      %td.col-md-1
+        = subvention.date_fist_comite

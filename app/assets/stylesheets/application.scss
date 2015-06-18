@@ -15,13 +15,23 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 // @import "cover";
 
 #siret_entreprise_input {
   //height: 60px;
   //font-size: 25px;
 }
+
 #siret_col {
   float: none;
   margin: 0 auto;
+}
+
+.dl-horizontal dt {
+  width: 180px
+}
+
+.dl-horizontal dd {
+  margin-left: 200px;
 }

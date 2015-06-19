@@ -46,13 +46,14 @@
             = number_to_currency(@sub_year_3, locale: :fr, unit: '€', format: "%n %u")
       .col-md-6
         - if @eligible_minimis
-          .label.label-success.eligiblite
+          .label.label-success.eligibilite
             Vous êtes éligible au minimis
             à hauteur de
             = number_to_currency(200_000 - @total_aide_publique, unit: '€', format: "%n %u")
         - else
-            .label.label-danger.eligiblite
-              Vous n'êtes pas éligible au minimis
+          .label.label-danger.eligibilite
+            Vous n'êtes pas éligible au minimis
+
 
   %h2
     Subventions réalisés (

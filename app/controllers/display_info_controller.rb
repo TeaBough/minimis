@@ -2,8 +2,6 @@ class DisplayInfoController < ApplicationController
 
   def update
     @subvention_all = Subvention.find_by_siret(params[:siret])
-    puts "AHHHHHHHHHH"
-    puts @subvention_all
     if @subvention_all.size == 0 || @subvention_all.nil?
       return redirect_to root_path, :flash => { :alert => "Données indisponibles pour ce siret" }
     end
@@ -19,15 +17,13 @@ class DisplayInfoController < ApplicationController
     @sub_year_1 = 0.0
     @sub_year_2 = 0.0
     @sub_year_3 = 0.0
-    @subventions_done.each do |sub|
-      puts '--------------------------'
-      puts sub.date_fist_comite.year
+    Subvention.done(params[:siret]).each do |sub|
       @sub_year_1 = @sub_year_1 + sub.montant_aide_publique if sub.date_fist_comite.year == 2013
       @sub_year_2 = @sub_year_1 + sub.montant_aide_publique if sub.date_fist_comite.year == 2012
       @sub_year_3 = @sub_year_1 + sub.montant_aide_publique if sub.date_fist_comite.year == 2011
     end
 
     @total_aide_publique = @sub_year_1 + @sub_year_2 + @sub_year_3
-
+    @eligible_minimis  = @total_aide_publique < 200_000
   end
 end

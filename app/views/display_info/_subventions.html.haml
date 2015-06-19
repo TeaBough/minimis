@@ -12,7 +12,7 @@
         = subvention.LibDossier
       %td
         = subvention.LibelleFonds
-      %td
-        = subvention.montant_aide_publique
+      %td.col-md-2
+        = number_to_currency(subvention.montant_aide_publique, locale: :fr, unit: '€', format: "%n %u")
       %td.col-md-1
         = subvention.date_fist_comite

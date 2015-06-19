@@ -20,29 +20,39 @@
       %h2.panel-title
         = @entreprise.raison_social
     .panel.panel-body
-      %dl.dl-horizontal
-        %dt
-          Siret :
-        %dd
-          = @entreprise.siret
-        %dt Adresse :
-        %dd
-          = @entreprise.l1
-          %br
-          = @entreprise.l2
-          %br
-          = @entreprise.l3
-        %dt Montant d'aide publique :
-        %dd= number_to_currency(@total_aide_publique, locale: :fr, unit: '€', format: "%n %u")
-        %dt 2013
-        %dd
-          = number_to_currency(@sub_year_1, locale: :fr, unit: '€', format: "%n %u")
-        %dt 2012
-        %dd
-          = number_to_currency(@sub_year_2, locale: :fr, unit: '€', format: "%n %u")
-        %dt 2011
-        %dd
-          = number_to_currency(@sub_year_3, locale: :fr, unit: '€', format: "%n %u")
+      .col-md-6
+        %dl.dl-horizontal
+          %dt
+            Siret :
+          %dd
+            = @entreprise.siret
+          %dt Adresse :
+          %dd
+            = @entreprise.l1
+            %br
+            = @entreprise.l2
+            %br
+            = @entreprise.l3
+          %dt Montant d'aide publique :
+          %dd= number_to_currency(@total_aide_publique, locale: :fr, unit: '€', format: "%n %u")
+          %dt 2013
+          %dd
+            = number_to_currency(@sub_year_1, locale: :fr, unit: '€', format: "%n %u")
+          %dt 2012
+          %dd
+            = number_to_currency(@sub_year_2, locale: :fr, unit: '€', format: "%n %u")
+          %dt 2011
+          %dd
+            = number_to_currency(@sub_year_3, locale: :fr, unit: '€', format: "%n %u")
+      .col-md-6
+        - if @eligible_minimis
+          .label.label-success.eligiblite
+            Vous êtes éligible au minimis
+            à hauteur de
+            = number_to_currency(200_000 - @total_aide_publique, unit: '€', format: "%n %u")
+        - else
+            .label.label-danger.eligiblite
+              Vous n'êtes pas éligible au minimis
 
   %h2
     Subventions réalisés (
